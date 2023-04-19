@@ -6,10 +6,10 @@ export default function Search() {
         <div
             className='
                 border-[1px]
-                w-[525px]
+                w-[405px]
                 py-2
                 rounded-full
-                shadow-sm
+                shadow-md
                 transition
                 cursor-pointer
             '
