@@ -54,7 +54,7 @@ export default function handler(
 
     };
     //
-    
+
     proxy.once("proxyRes", handleLoginResponse);
 
     // https://js-post-api.herokuapp.com

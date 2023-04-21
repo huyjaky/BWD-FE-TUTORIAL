@@ -1,12 +1,16 @@
+import { MainLayout } from '@/components/layouts'
+import { NextPageWithLayout } from '@/models/common'
 import { Inter } from 'next/font/google'
-import Navbar from './components/Navbar/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+const Home:NextPageWithLayout = () => {
   return (
     <div>
-      <Navbar />
+      check
     </div>
   )
 }
+Home.Layout = MainLayout;
+
+export default Home;
