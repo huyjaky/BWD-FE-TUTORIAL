@@ -7,7 +7,7 @@ export interface LayoutProps{
 }
 
 
-// source from next/docs/layouts 
+// source from next/docs/layouts
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   Layout?: (props: LayoutProps) => ReactElement
 }

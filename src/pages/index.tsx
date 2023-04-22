@@ -1,4 +1,5 @@
 import { MainLayout } from "@/components/layouts";
+import { Popup } from "@/components/popup";
 import { NextPageWithLayout } from "@/models/common";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
@@ -18,21 +19,34 @@ const Home: NextPageWithLayout = () => {
     };
   }, []);
 
-  const handleOnClickDiv = (event: any) => {
-    const root = document.getElementById('root');
-    if (root?.contains(event.target)) {
-      console.log('check');
-      console.log(event.target);
-    }
+  const handleOnClickMouseDown = (event: any) => {
+    const btn = document.getElementById('btn-testAPI');
+    console.log('down');
+    btn?.classList.add('bg-white');
+  }
+
+  const handleOnClickMouseUp = (event: any) => {
+    const btn = document.getElementById('btn-testAPI');
+    console.log('up');
+    btn?.classList.remove('bg-white');
   }
 
   return (
     <div id="root">
       <div>check rerender</div>
       <div>Clock {date.toUTCString()}</div>
-      <div className="w-[300px] h-[300px] bg-slate-500 text-white" onClick={handleOnClickDiv}>
+      <div className="w-[300px] h-[300px] bg-slate-500 text-white">
         Test event.targe
       </div>
+      <button className="w-[200px] h-[200px] bg-emerald-300 rounded-xl
+        transition-all
+      "
+      id="btn-testAPI"
+      onMouseDown={handleOnClickMouseDown}
+      onMouseUp={handleOnClickMouseUp}
+      >Click me</button>
+
+      <Popup />
     </div>
   );
 };
