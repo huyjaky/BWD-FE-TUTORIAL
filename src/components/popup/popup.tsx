@@ -1,4 +1,13 @@
+import { themeContext } from "@/contexts";
+import { useContext, useEffect } from "react";
+
 export const Popup = () => {
+  const {theme} = useContext(themeContext)
+
+  useEffect(()=> {
+    console.log(theme);
+  }, [])
+
   const handleOnClick = () => {
     const panel = document.getElementById("popup-panel");
     if (panel?.classList.contains("hidden")) {
@@ -18,10 +27,10 @@ export const Popup = () => {
         popup
       </button>
       <div
-        className="w-[200px] h-[200px] relative  overflow-hidden
+        className={`w-[200px] h-[200px] relative  overflow-hidden
             after:block after:top-0 after:left-0 after:w-[20px] after:h-[100%]
-            after:bg-slate-400 after:absolute after:animate-slideDown
-        "
+            after:${theme} after:absolute after:animate-slideDown
+        `}
         id="popup-panel"
       >
         <button
