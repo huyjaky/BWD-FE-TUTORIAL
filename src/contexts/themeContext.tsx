@@ -6,11 +6,13 @@ interface themeContextProps {
 }
 
 interface themeContextDefault {
-  theme: string
+  theme: string,
+  toggleTheme: (theme: string) => void
 }
 
 const themeContextDefaultData = {
-  theme: 'bg-white'
+  theme: 'bg-slate-500',
+  toggleTheme: () => {}
 }
 
 export const themeContext = createContext<themeContextDefault>(themeContextDefaultData);

@@ -1,50 +1,41 @@
 import { authApi } from "@/api-client";
 import { MainLayout } from "@/components/layouts";
+import useAuth from "@/hooks/useAuth";
 import { NextPageWithLayout } from "@/models";
 
 const Homepage: NextPageWithLayout = () => {
+  const {profile, login, logout} = useAuth({
+    revalidateOnMount: false
+  });
+
   const handleLogin = async () => {
     try {
-      await authApi.login({
-        username: "jajajajau",
-        password: "123456",
-      });
-      console.log('Login successfully');
+      await login();
+
+      console.log('redirect to dashboard');
     } catch (error) {
-      console.log("Fail to login", error);
-      return;
+      return console.log(error);
     }
   };
   const handleLogout = async () => {
     try {
-      await authApi.logout();
-      console.log('Logout successfully');
+      await logout();
+      console.log('redirect to login page');
     } catch (error) {
-      console.log("Fail to logout", error);
-      return;
-    }
-  };
-
-  const handleProfile = async () => {
-    try {
-      const data = await authApi.getProfile();
-      console.log(data);
-    } catch (error) {
-      console.log('Something go wrong', error);
-      return;
+      return console.log(error);
     }
   };
   return (
     <div className="flex w-[100%] h-[100vh] flex-col">
       <div className="w-[20%] flex justify-between m-auto">
+        <div>
+          {JSON.stringify(profile || {}, null, 4)}
+        </div>
         <button className="p-[20px] bg-slate-600 rounded-xl text-white" onClick={handleLogin}>
           Login
         </button>
         <button className="p-[20px] bg-slate-600 rounded-xl text-white" onClick={handleLogout}>
           Logout
-        </button>
-        <button className="p-[20px] bg-slate-600 rounded-xl text-white" onClick={handleProfile}>
-          Profile
         </button>
       </div>
     </div>
