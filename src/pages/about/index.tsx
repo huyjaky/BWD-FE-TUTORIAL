@@ -1,4 +1,4 @@
-import { MainLayout } from "@/components/layouts";
+import { AdminLayout, MainLayout } from "@/components/layouts";
 import { NextPageWithLayout } from "@/models/common";
 import Link from "next/link"
 
@@ -16,6 +16,6 @@ const About: NextPageWithLayout = () => {
   )
 }
 
-About.Layout = MainLayout;
+About.Layout = AdminLayout;
 
 export default About;

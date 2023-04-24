@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export function MainLayout({ children }: LayoutProps) {
   return (
+    
     <div className="flex flex-col">
       <h1>Main Layout</h1>
       <Link href={"/"} className="my-[10px]">

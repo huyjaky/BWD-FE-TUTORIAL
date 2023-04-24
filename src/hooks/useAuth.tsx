@@ -28,11 +28,14 @@ const useAuth = (options?: Partial<PublicConfiguration>) => {
     mutate({}, false);
   };
 
+  const firstLoading = profile === undefined && error === undefined
+
   return {
     profile,
     error,
     login,
-    logout
+    logout,
+    firstLoading
   };
 };
 

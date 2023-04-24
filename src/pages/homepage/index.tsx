@@ -11,7 +11,6 @@ const Homepage: NextPageWithLayout = () => {
   const handleLogin = async () => {
     try {
       await login();
-
       console.log('redirect to dashboard');
     } catch (error) {
       return console.log(error);
